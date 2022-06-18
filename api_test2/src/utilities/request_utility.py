@@ -22,8 +22,9 @@ class RequestUtility(object):
 
         url = self.base_url + endpoint
         rs_api = requests.post(url, data=json.dumps(payload), headers=headers, auth=self.auth)
-        self.status_code = rs_api.status_code
-        assert self.status_code == int(expected_status_code), f'Expected status code {expected_status_code} but Actual {self.status_code}'
+        status_code = rs_api.status_code
+        assert status_code == int(expected_status_code), f'Expected status code {expected_status_code} \
+            but Actual {status_code}'
         # import pdb;
         # pdb.set_trace()
         logger.debug(f"****************POST API RESPONSE**************: {rs_api.json()}")
@@ -35,9 +36,9 @@ class RequestUtility(object):
 
         url = self.base_url + endpoint
         rs_api = requests.get(url, data=json.dumps(payload), headers=headers, auth=self.auth)
-        self.status_code = rs_api.status_code
-        assert self.status_code == int(
-            expected_status_code), f'Expected status code {expected_status_code} but Actual {self.status_code}'
+        status_code = rs_api.status_code
+        assert status_code == int(
+            expected_status_code), f'Expected status code {expected_status_code} but Actual {status_code}'
         # import pdb;
         # pdb.set_trace()
         logger.debug(f"***********GET API RESPONSE*****************: {rs_api.json()}")

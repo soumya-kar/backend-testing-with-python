@@ -6,6 +6,9 @@ from api_test2.src.utilities.request_utility import RequestUtility
 @pytest.mark.tcid30
 @pytest.mark.customer
 def test_get_all_customers():
+    """
+    Verify 'GET /customers' lists all users
+    """
     req_helper = RequestUtility()
     rs_api = req_helper.get('customers')
 

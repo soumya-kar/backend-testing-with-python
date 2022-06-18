@@ -11,6 +11,9 @@ from api_test2.src.utilities import request_utility
 @pytest.mark.tcid_29
 @pytest.mark.customer
 def test_create_customer_only_email_password():
+    """
+    Verify 'POST /customers' creates user with email and password only
+    """
     logger.debug("TEST: Create new customer with email and password only")
     random_info = genericUtility.generate_random_email_and_password()
     print(random_info)
@@ -43,7 +46,10 @@ def test_create_customer_only_email_password():
 @pytest.mark.tcid47
 @pytest.mark.customer
 def test_create_customer_fail_for_existing_email():
-    # get existing email from DB
+    """
+    Veirfy 'create customer' fails if email exists
+    """
+    # get an existing email from DB
     cust_dao = CustomerDAO()
     existing_customer = cust_dao.get_random_customer_from_db()
     existing_email = existing_customer[0]['user_email']
